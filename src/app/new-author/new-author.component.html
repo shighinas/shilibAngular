@@ -45,7 +45,7 @@
             <label for="awards">Awards (if any)</label>
             <input type="text" class="form-control" placeholder="eg:2020 Nobel Prize Winner, 2020 Rajya Puraskar.. etc." name="awards" [(ngModel)]= 'authorItem.awards'><br>
             <label for="pic">Photo</label>
-            <input type="text" class="form-control" name="pic" [(ngModel)]= 'authorItem.pic' required><br>
+            <input type="text" class="form-control" placeholder="Image URL" name="pic" [(ngModel)]= 'authorItem.pic' required><br>
             <label for="description">Small Description</label><br>
             <textarea name="description" cols="30" rows="3" class="form-control" [(ngModel)]= 'authorItem.description'></textarea><br><br>
             <button type="submit" class="btn btn-primary form-control">Add </button><br>

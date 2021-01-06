@@ -65,8 +65,8 @@
             required minlength="8" [class.is-invalid]= "pwd.touched && pwd.invalid" [class.is-valid]= "pwd.valid">
             <small class="text-danger" [class.d-none]= "pwd.valid || pwd.untouched">password must be atleast 8 characters long</small>
 
-          <input type="password" name="confirmpwd" class="form-control" placeholder="Confirm Password" #confpwd='ngModel'[(ngModel)]= "confpass"
-             [class.is-invalid]= "confpwd.touched && (confpass != user.password)" [class.is-valid]= "confpwd.touched && (confpass==user.password)" required>
+          <input type="password" name="confirmpwd" class="form-control" placeholder="Confirm Password" minlength='8' #confpwd='ngModel'[(ngModel)]= "confpass"
+             [class.is-invalid]= "confpwd.touched && (confpass != user.password)" [class.is-valid]= "confpwd.valid && (confpass==user.password)" required>
             <small *ngIf= "confpass != user.password" class="text-danger" [class.d-none]= "confpwd.untouched">Password does'nt match</small>
           <br>
           <button class="btn btn-primary sub" [disabled]= "userReg.form.invalid">Sign Up</button><br>

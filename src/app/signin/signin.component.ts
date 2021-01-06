@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { AuthService } from '../auth.service';
@@ -18,6 +19,9 @@ export class SigninComponent implements OnInit {
   constructor( private _auth: AuthService, private router: Router, private alertservice: AlertService) { }
   // $: any;
   ngOnInit(): void {
+    this.user = new UserModel('', '', '', '');
+    this.confpass = '';
+    this.loginUser = { email: '', password: ''};
     $('#hide').click(function(){
       $('.signUp').animate({left: '500px', width: 'toggle'},'slow', ()=>{
           $('.shig').toggle();
@@ -35,8 +39,16 @@ export class SigninComponent implements OnInit {
       localStorage.setItem('token', res.token);
       if(res.role != ''){
         localStorage.setItem('role', res.role);
+        alert('Welcome Admin');
+      }
+      else{
+        alert('Successfully logged in.')
       }
       this.router.navigate(['nav/books']);
+    }, (err)=>{
+      console.log(err);
+      alert('Incorrect Username or password');
+      this.ngOnInit();
     });
   }
 

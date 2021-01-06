@@ -47,7 +47,7 @@
             <label for="awards">Awards (if any)</label>
             <input type="text" name="awards" class="form-control" placeholder="eg:Booker price.. etc." [(ngModel)]= 'bookItem.awards'><br>
             <label for="pic">Photo</label>
-            <input type="text" name="pic" class="form-control" [(ngModel)]='bookItem.pic' required><br>
+            <input type="text" name="pic" placeholder="Image URL" class="form-control" [(ngModel)]='bookItem.pic' required><br>
             <label for="review">Review</label><br>
             <textarea name="review" [(ngModel)]= 'bookItem.review' cols="30" rows="3" class="form-control"></textarea><br><br>
             <button type="submit" class="form-control btn btn-primary">Add to Book Shelf</button><br><br>

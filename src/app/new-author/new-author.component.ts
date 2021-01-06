@@ -9,6 +9,7 @@ import { AuthorsModel } from '../authors/authors.model';
   styleUrls: ['./new-author.component.css']
 })
 export class NewAuthorComponent implements OnInit {
+  title: string = 'Add new Author';
   authorItem = new AuthorsModel('','',new Date(),'','','','');
   author: AuthorsModel = {'_id':'', 'name':'', 'awards':'', 'dob':new Date(), 'description':'', 'pic':'', 'work':''};
 
@@ -16,6 +17,7 @@ export class NewAuthorComponent implements OnInit {
   id: any = this.route.snapshot.paramMap.get('id');
   ngOnInit(): void {
     if(this.id != null){
+      this.title = 'Update Author';
       console.log(this.id);
       this.authorservice.getSingleAuthor(this.id)
       .subscribe( (data)=>{

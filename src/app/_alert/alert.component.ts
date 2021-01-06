@@ -11,8 +11,8 @@ export class AlertComponent implements OnInit, OnDestroy {
     @Input() fade = true;
 
     alerts: Alert[] = [];
-    alertSubscription: Subscription;
-    routeSubscription: Subscription;
+    alertSubscription: Subscription = new Subscription();
+    routeSubscription: Subscription = new Subscription();
 
     constructor(private router: Router, private alertService: AlertService) { }
 
@@ -57,25 +57,25 @@ export class AlertComponent implements OnInit, OnDestroy {
         // check if already removed to prevent error on auto close
         if (!this.alerts.includes(alert)) return;
 
-        if (this.fade) {
-            // fade out alert
-            this.alerts.find(x => x === alert).fade = true;
+        // if (this.fade) {
+        //     // fade out alert
+        //     this.alerts.find(x => x === alert).fade = true;
 
-            // remove alert after faded out
-            setTimeout(() => {
-                this.alerts = this.alerts.filter(x => x !== alert);
-            }, 250);
-        } else {
-            // remove alert
-            this.alerts = this.alerts.filter(x => x !== alert);
-        }
+        //     // remove alert after faded out
+        //     setTimeout(() => {
+        //         this.alerts = this.alerts.filter(x => x !== alert);
+        //     }, 250);
+        // } else {
+        //     // remove alert
+        //     this.alerts = this.alerts.filter(x => x !== alert);
+        // }
     }
 
     cssClass(alert: Alert) {
         if (!alert) return;
 
         const classes = ['alert', 'alert-dismissable'];
-                
+
         const alertTypeClass = {
             [AlertType.Success]: 'alert-success',
             [AlertType.Error]: 'alert-danger',

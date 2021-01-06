@@ -44,7 +44,8 @@ export class SigninComponent implements OnInit {
     this._auth.userReg(this.user)
     .subscribe( (res)=>{
       console.log(JSON.parse(JSON.stringify(res.text)));
-      this.alertservice.success('successfully registered, pls login to continue.')
+      this.alertservice.success('successfully registered, pls login to continue.');
+      alert('successfully registered, pls Click on signIn to continue.')
     }, (err)=>{
       console.log(err.error);
       this.alertservice.error(err.error+ ', registration failed');

@@ -3,7 +3,7 @@ export class Alert {
     type: AlertType = AlertType.Info ;
     message: string = '';
     autoClose: boolean = false;
-    keepAfterRouteChange: boolean = false;
+    keepAfterRouteChange? : boolean = false;
     fade: boolean = true;
 
     constructor(init?:Partial<Alert>) {

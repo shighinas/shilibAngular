@@ -9,6 +9,7 @@ import { BooksModel } from '../books/books.model';
   styleUrls: ['./newbook.component.css']
 })
 export class NewbookComponent implements OnInit {
+  title: string = 'Add new Book';
   bookItem = new BooksModel('','','','','','','','');
   book: BooksModel = {'_id':'', 'author':'', 'awards':'', 'genre':'', 'pic':'', 'publisher':'', 'review':'', 'title':''};
 
@@ -16,6 +17,7 @@ export class NewbookComponent implements OnInit {
   id: any = this.route.snapshot.paramMap.get('id');
   ngOnInit(): void {
     if(this.id != null){
+      this.title = 'Update Book';
       console.log(this.id);
       this.bookservice.getSingleBook(this.id)
       .subscribe( (data)=>{

@@ -1,0 +1,23 @@
+<div class="panel">
+  <div class="panel-body">
+    <form method="POST" class="form-signin" (ngSubmit)='add()' autocomplete="off">
+      <label for="title">Name of the Book</label>
+      <input type="text" name="title" class="form-control" placeholder="Title" [(ngModel)]= 'bookItem.title' required><br>
+      <label for="author">Author</label>
+      <input type="text" name="author" class="form-control" placeholder="Name of Author" [(ngModel)]= 'bookItem.author' required><br>
+      <label for="genre">Genre</label>
+      <input type="text" name="genre" class="form-control" placeholder="eg: Fantacy, Comic, etc." [(ngModel)]= 'bookItem.genre' required><br>
+      <label for="pub">Publisher</label>
+      <input type="text" name="pub" class="form-control" placeholder="eg: DC books" [(ngModel)]= 'bookItem.publisher' required><br>
+      <label for="awards">Awards (if any)</label>
+      <input type="text" name="awards" class="form-control" placeholder="eg:Booker price.. etc." [(ngModel)]= 'bookItem.awards'><br>
+      <label for="pic">Photo</label>
+      <input type="text" name="pic" class="form-control" [(ngModel)]='bookItem.pic' required><br>
+      <label for="review">Review</label><br>
+      <textarea name="review" [(ngModel)]= 'bookItem.review' cols="30" rows="3" class="form-control"></textarea><br><br>
+      <button type="submit" class="form-control btn btn-primary">Add to Book Shelf</button><br><br>
+      <button type="button" class="form-control btn btn-warning" (click)="cancel()">Cancel</button><br>
+    </form>
+    <hr>
+  </div>
+</div>

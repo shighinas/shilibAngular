@@ -1,0 +1,78 @@
+<alert></alert>
+<section>
+<div class="container-fluid main row">
+  <div class="first col-md-7 signUp">
+
+      <!-- <% if(message.length > 0) { %>
+          <div class="alert alert-primary">
+              <%=message %>
+          </div>
+      <% } %> -->
+
+      <h1>Sign In to ShiLib</h1>
+      <button class="btn btn-light"> <i class="social-icons fab fa-facebook-f"></i> </button>
+      <button class="btn btn-light"> <i class="social-icons fab fa-twitter"></i> </button>
+      <button class="btn btn-light"> <i class="fab fa-google-plus-g"></i> </button><br><br>
+      <p>or use your email account</p>
+      <form method="POST" class="form-signin" autocomplete="off" #userlogin='ngForm' (ngSubmit)='loginVerify()'>
+          <input type="email" name="email" class="form-control" placeholder=" Email" [(ngModel)]='loginUser.email' #email="ngModel"
+              [class.is-invalid]="email.touched && email.invalid" pattern='^[a-zA-Z0-9]+@[a-z0-9]+\.[a-z]{2,3}$' required >
+            <small class="text-danger" [class.d-none]="email.valid || email.untouched">enter valid email</small>
+          <br>
+          <input type="password" name="pwd" class="form-control" placeholder="Password" [(ngModel)]='loginUser.password' required>
+          <br>
+          <button type="button" class="btn btn-light">Forgot your password?</button><br><br>
+          <button type="submit" class="btn btn-primary sub" [disabled]='userlogin.form.invalid'>Sign In</button><br>
+      </form>
+
+  </div>
+  <div class="second col-md-5 shig">
+      <div class="secondContent">
+      <h1>Hello, Geek!</h1>
+      <p>Enter your personal details and start exploring the knowledge world with us</p>
+      <button class="btn btn-outline-light sub" id="hide"> Sign Up </button>
+      </div>
+  </div>
+  <div class="second col-md-5 hidden">
+      <div class="secondContent">
+      <h1>Welcome Back</h1>
+      <p>To keep on exploring with us please login using your credentials.</p>
+      <button class="btn btn-outline-light sub" id="hide2"> Sign In </button>
+      </div>
+  </div>
+  <div class="first col-md-7 hidden">
+      <h1>Start creating your library</h1>
+      <button class="btn btn-light"> <i class="social-icons fab fa-facebook-f"></i> </button>
+      <button class="btn btn-light"> <i class="social-icons fab fa-twitter"></i> </button>
+      <button class="btn btn-light"> <i class="fab fa-google-plus-g"></i> </button><br>
+      <p>or use your email for registration.</p>
+      <form method="POST" class="form-signin" #userReg="ngForm" (ngSubmit)='regUser()' autocomplete="off">
+          <input type="text" name="name" class="form-control" placeholder="UserName" [(ngModel)]= "user.name" #username="ngModel"
+            pattern="^[a-zA-Z]+$" minlength="3" [class.is-invalid]= "username.touched && username.invalid"
+            [class.is-valid]= "username.touched && username.valid" required>
+            <small class="text-danger" [class.d-none]= "username.valid || username.untouched">Username should only contain alphabets</small>
+
+          <input type="email" name="email" class="form-control" placeholder=" Email" [(ngModel)]= "user.email" #usermail="ngModel"
+            pattern="^[a-zA-Z0-9]+@[a-z0-9]+\.[a-z]{3}" required [class.is-invalid]= "usermail.touched && usermail.invalid"
+            [class.is-valid]= "usermail.touched && usermail.valid">
+            <small class="text-danger" [class.d-none]= "usermail.valid || usermail.untouched">Invalid Email</small>
+
+          <input type="text" name="phone" class="form-control" placeholder="Phone Number" [(ngModel)]= "user.phone" #phone="ngModel"
+            pattern="^[0-9]{10}$" required [class.is-invalid]= "phone.touched && phone.invalid" [class.is-valid]= "phone.valid">
+            <small class="text-danger" [class.d-none]= "phone.valid || phone.untouched">Invalid Phone Number</small>
+
+          <input type="password" name="pwd" class="form-control" placeholder="Password" [(ngModel)]= "user.password" #pwd="ngModel"
+            required minlength="8" [class.is-invalid]= "pwd.touched && pwd.invalid" [class.is-valid]= "pwd.valid">
+            <small class="text-danger" [class.d-none]= "pwd.valid || pwd.untouched">password must be atleast 8 characters long</small>
+
+          <input type="password" name="confirmpwd" class="form-control" placeholder="Confirm Password" #confpwd='ngModel'[(ngModel)]= "confpass"
+             [class.is-invalid]= "confpwd.touched && (confpass != user.password)" [class.is-valid]= "confpwd.touched && (confpass==user.password)" required>
+            <small *ngIf= "confpass != user.password" class="text-danger" [class.d-none]= "confpwd.untouched">Password does'nt match</small>
+          <br>
+          <button class="btn btn-primary sub" [disabled]= "userReg.form.invalid">Sign Up</button><br>
+      </form>
+
+  </div>
+</div>
+</section>
+

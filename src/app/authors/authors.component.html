@@ -1,0 +1,42 @@
+
+      <div class="panel">
+        <div class="panel-body">
+
+          <!--/stories-->
+            <div class="row" *ngFor= 'let author of authors'>
+                <br>
+                <div class="col-md-2 col-sm-3 text-center">
+                <a class="story-title" href="#"><img alt="" [src]='author.pic' style="width:100px;height:100px" class="img-circle"></a>
+              </div>
+                <div class="col-md-10 col-sm-9">
+                <h3>{{author.name}} </h3>
+                <div class="row">
+                    <div class="col-xs-9">
+                    <h4><span class="label label-default">{{author.dob}} </span></h4><h4>
+                    <small style="font-family:courier,'new courier';" class="text-muted">{{author.work}} •
+                        <a [routerLink]="['/nav/author', author._id]"  class="text-muted">Read More</a>
+                    </small>
+                    </h4>
+                  </div>
+                    <div class="col-xs-3"></div>
+                </div>
+                <br><br>
+                <a *ngIf='_auth.isAdmin()' class="btn btn-warning pull-right btnNext" [routerLink]="['/nav/addauthor', {id: author._id}]">Edit <i class="fas fa-edit"></i></a>
+                <a *ngIf='_auth.isAdmin()' class="btn btn-danger pull-right" (click)='deleteAuthor(author._id, author.name)'>Delete <i class="fas fa-trash-alt"></i></a>
+                </div>
+                <hr>
+            </div>
+            <hr>
+
+          <!--/stories-->
+
+
+          <a href="#" class="btn btn-primary btnNext">More <i class="fas fa-chevron-right"></i></a>
+
+
+        </div>
+      </div>
+
+
+
+
